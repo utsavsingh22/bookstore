@@ -1,0 +1,38 @@
+class book:
+    def __init__(self, tit, aut, pub, p, cp = 0):
+        self.title = tit
+        self.author = aut
+        self.publisher = pub
+        self.price = p
+        self.copies = cp
+        
+    def get_price(self):
+        return self._price
+        
+    def set_price(self, p):
+        self._price = p
+        return
+        
+    def ShowInfo(self):
+        print('title:', self.title)
+        print('author:', self.author)
+        print('publisher:', self.publisher)
+        print('price:', self.price)
+        
+    def royalty(self):
+        self.ShowInfo()
+        if self.copies <= 200:
+          royal = self.copies*self.price*10/100
+          return royal
+        elif self.copies < 1000:
+          royal = 200*self.price*10/100+(self.copies-200)*self.price*12.5/100
+          return royal
+        else:
+          royal = 200*self.price*10/100+200*self.price*12.5/100+(self.copies-1000)*self.price*15/100
+          return royal
+        
+b = book("malgudidays","rk narayan","penguinclassic",200,1000) 
+      
+print(b.royalty())  
+        
+        
